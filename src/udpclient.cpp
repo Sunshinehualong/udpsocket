@@ -1,5 +1,8 @@
-#include "UdpClient.h"
+#include "udpclient.h"
 #include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 UdpClient::UdpClient():m_closed(false)
 {
@@ -72,7 +75,7 @@ int UdpClient::RecvMsg(void *recv_msg, unsigned int &recv_len, const char *ip, u
 	{
 		if((n = recvfrom(this->m_sock,syncBuff,BUFFSIZE, 0 ,(struct sockaddr*)&recv_addr,&len))>=0)
 		{    
-			printf("in time ,left time %d s ,%d usec\n",tv.tv_sec,tv.tv_usec);
+			printf("in time ,left time %ld s ,%ld usec\n",tv.tv_sec,tv.tv_usec);
 			if(n == 0xffffffff)
 			{
 				recv_len = 0;
@@ -89,7 +92,7 @@ int UdpClient::RecvMsg(void *recv_msg, unsigned int &recv_len, const char *ip, u
 	}
 	else
 	{
-		printf("timeout ,left time %d s ,%d usec\n",tv.tv_sec,tv.tv_usec);
+		printf("timeout ,left time %ld s ,%ld usec\n",tv.tv_sec,tv.tv_usec);
 		recv_len = 0;
 		//memcpy(recv_msg, (void *)syncBuff, 0);
 	}
