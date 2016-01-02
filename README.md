@@ -15,4 +15,4 @@ CMake is required to support object libraries, which is the case in versions hig
 * Windows
 
 ## CONTACT
-mjrao@foxmail.com
+mjrao at foxmail.com
