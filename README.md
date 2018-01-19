@@ -1,4 +1,5 @@
 # README for udpsocket
+# udp 单进程　有初始化创建socket 发送和接收的方法
 
 build on windows or linux
 
